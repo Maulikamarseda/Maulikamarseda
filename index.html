@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>I Love You</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      function swapButtons() {
+        // Get the buttons
+        const yesButton = document.getElementById("Yes");
+        const noButton = document.getElementById("No");
+
+        // Get their parent element
+        const parent = yesButton.parentElement;
+
+        // Swap the buttons by re-inserting them
+        if (yesButton.nextElementSibling === noButton) {
+          parent.insertBefore(noButton, yesButton);
+        } else {
+          parent.insertBefore(yesButton, noButton);
+        }
+      }
+
+      function redirectToWhatsApp() {
+        const phoneNumber = "7016583364";
+        const message = "Yes of course";
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.location.href = whatsappUrl;
+      }
+    </script>
+  </head>
+  <body>
+    <form action="#">
+      <h2>I love you</h2>
+      <h3>Will you be my partner?</h3>
+      <div class="buttons">
+        <input
+          type="button"
+          value="Yes"
+          id="Yes"
+          onclick="redirectToWhatsApp()"
+        />
+        <input
+          type="button"
+          value="No"
+          id="No"
+          onclick="swapButtons()"
+        />
+      </div>
+    </form>
+  </body>
+</html>
